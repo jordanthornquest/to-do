@@ -1,9 +1,9 @@
 type Todo {
    name: String!
-   completed: Boolean
+   done: Boolean
 }
 
 type Query {
    allTodos: [Todo!]
-   todosByCompletedFlag(completed: Boolean!): [Todo!]
+   todosByCompletedFlag(done: Boolean!): [Todo!]
 }
