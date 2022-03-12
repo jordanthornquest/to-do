@@ -1,0 +1,77 @@
+/* New task component styles */
+/* Organized alphabetically */
+
+/* New task input */
+.input {
+  appearance: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  color: #212529;
+  display: block;
+  flex: 1 0 auto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: .375rem .75rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.input:active,
+.input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+  border-color: #86b7fe;
+  color: #212529;
+  outline: 0;
+}
+
+/* New task label */
+.label {
+  position: absolute!important;
+  width: 1px!important;
+  height: 1px!important;
+  padding: 0!important;
+  margin: -1px!important;
+  overflow: hidden!important;
+  clip: rect(0,0,0,0)!important;
+  white-space: nowrap!important;
+  border: 0!important;
+}
+
+/* New task submit */
+.submit {
+  background-color: #0d6efd;
+  border: 1px solid transparent;
+  border-color: #0d6efd;
+  border-radius: .25rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex: 0 0 auto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: .375rem .75rem;
+  text-align: center;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  user-select: none;
+  vertical-align: middle;
+}
+
+/* New task wrapper */
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  margin: 1rem 0 0;
+}
+
+@media (min-width: 500px) {
+  .wrapper {
+    flex-wrap: nowrap;
+  }
+}
