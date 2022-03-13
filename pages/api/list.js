@@ -1,7 +1,14 @@
-import { listToDos } from '../../lib/fauna'
+// We use our own API to mask requests to Fauna
+// This is for security, and to avoid exposing environment variables
+//
+// Import components from library
+import { findAllTodos, graphFetcher } from '../../lib/fauna'
 
+// Make the API call
 export default async function handler(req, res) {
-  const entries = await listToDos()
+  // Get all data with GraphQL
+  const response = await graphFetcher(findAllTodos)
 
-  return res.json(entries)
+  // Return response as API response
+  return res.json(response)
 }
