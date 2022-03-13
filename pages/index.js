@@ -31,7 +31,9 @@ export default function ToDos() {
       <Header />
 
       <main>
-        {data.name}
+        {data.map((task) => (
+          <p>{task.name}</p>
+        ))}
       </main>
     </div>
   )
