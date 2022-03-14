@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <SWRConfig
       value={{
-        refreshInterval: 1000,
         fetcher: fetcher
       }}
     >
