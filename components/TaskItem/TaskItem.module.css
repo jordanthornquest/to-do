@@ -1,0 +1,12 @@
+/* Task component styles */
+/* Organized alphabetically */
+
+/* Task checkbox */
+.checkbox {
+  margin-right: 0.5rem;
+}
+
+/* Task spacing */
+.task + .task {
+  margin-top: 0.5rem;
+}
