@@ -1,0 +1,17 @@
+/* All todos component styles */
+/* Organized alphabetically */
+
+/* All todos heading spacing */
+.heading + .error,
+.heading + .list,
+.heading + .loading {
+  margin-top: 1rem;
+}
+
+/* All todos wrapper */
+.wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
