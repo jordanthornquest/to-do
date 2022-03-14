@@ -6,6 +6,17 @@
   margin-right: 0.5rem;
 }
 
+/* Task checked */
+.checked {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+/* Task label */
+.label {
+  font-size: 1rem;
+}
+
 /* Task spacing */
 .task + .task {
   margin-top: 0.5rem;

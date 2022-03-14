@@ -1,9 +1,9 @@
-type Todo {
+type Task {
    name: String!
    done: Boolean
 }
 
 type Query {
-   allTodos: [Todo!]
-   todosByCompletedFlag(done: Boolean!): [Todo!]
+   allTasks: [Task!]
+   tasksByCompletedFlag(done: Boolean!): [Task!]
 }

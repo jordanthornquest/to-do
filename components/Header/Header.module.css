@@ -8,7 +8,7 @@
 }
 
 /* Header description spacing from heading */
-.heading + .description {
+.heading + .subheading {
   margin-top: 1rem;
 }
 

@@ -1,0 +1,14 @@
+/* All tasks component styles */
+/* Organized alphabetically */
+
+/* All tasks heading spacing */
+.heading + .error,
+.heading + .loading,
+.heading + .list {
+  margin-top: 1rem;
+}
+
+/* All tasks section spacing */
+.section + .section {
+  margin-top: 2rem;
+}

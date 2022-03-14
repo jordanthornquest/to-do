@@ -1,10 +1,10 @@
 // Import components
 import Head from 'next/head'
 import { Header } from '../components/Header/'
-import { AllTodos } from '../components/AllTodos/'
+import { Home } from '../components/Home/'
 
-// Create page
-export default function ToDos() {
+// Render page
+export default function Start() {
   return (
     <div>
       <Head>
@@ -12,10 +12,8 @@ export default function ToDos() {
         <meta name="description" content="A to-do application built with Next.js and Firebase." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
-
-      <AllTodos />
+      <Home />
     </div>
   )
 }
