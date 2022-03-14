@@ -1,9 +1,20 @@
 // Import styles
 import styles from './NewTask.module.css'
 
+// Export component
 export function NewTask() {
+  // Function for creating new task
+  const createNewTask = e => {
+    // Don't submit the form element natively
+    e.preventDefault()
+  }
+
+  // Render component
   return (
-    <form className={styles.wrapper}>
+    <form
+      className={styles.wrapper}
+      onSubmit={createNewTask}
+    >
       <label
         className={styles.label}
         htmlFor="newTask"
