@@ -15,22 +15,22 @@ const handleTaskChange = async (event, mutate, task, tasks) => {
   // Update tasks list with new task
   try {
     // Create new tasks list with task update
-    // This immediately updates the DOM
     const updatedTasks = updateTaskData(updatedTask, tasks)
 
-    // Mutate remote dataset
-    // This sends the task update to the API
+    // Mutate tasks list
     await mutate(
       `/api/list/tasks`, 
       updateTaskCall(updatedTask),
       {
-        // First, optimisticData sets the data cache with the local task update
+        // First, optimisticData temporarily sets the data cache using updatedTasks
+        // This immediately updates the DOM
         optimisticData: updatedTasks,
         // Then, populateCache sets the data cache with the API response
-        // populateCache expects an object to be returned with the new tasks list
-        populateCache: (updatedTask, tasks) => {
+        // currentTasks is the dataset as it existed before being temporarily updated by optimisticData
+        // We return a new tasks list which combines the current tasks and the updated task response from the API
+        populateCache: (updatedTaskResponse, currentTasks) => {
           // Mutate data cache with API response
-          const updatedTasks = updateTaskData(updatedTask, tasks)
+          const updatedTasks = updateTaskData(updatedTaskResponse, currentTasks)
 
           // Return updated tasks
           return updatedTasks

@@ -9,7 +9,7 @@ export function Header() {
     <header className={styles.wrapper}>
       <h1 className={styles.heading}>KRS Global Domination Center</h1>
       <h2 className={styles.subheading}>Add new task</h2>
-      <NewTask />
+      <NewTask formId="newTask" />
     </header>
   )
 }
