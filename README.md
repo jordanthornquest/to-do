@@ -30,6 +30,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployment
 
-[Live site on Netlify](https://krs-global-domination-planner.netlify.app/)
+[Live site on Netlify!](https://krs-global-domination-planner.netlify.app/)
 
 This application is deployed to Netlify. Deployment is handled automatically whenever code is pushed to `main`. The database secret key is configured with Netlify, to ensure data access.
