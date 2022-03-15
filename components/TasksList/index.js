@@ -35,7 +35,9 @@ export function TasksList({ status, title }) {
               variant="outline-danger"
             >
               <span className="d-inline d-sm-none">Delete done</span>
-              <span className="d-none d-sm-inline">Delete all completed tasks</span>
+              <span className="d-none d-sm-inline">
+                Delete all completed tasks
+              </span>
             </Button>
           )}
         </header>

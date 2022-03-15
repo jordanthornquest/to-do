@@ -5,7 +5,7 @@ import Image from "next/image";
 import logo from "../../public/krs-logo.webp";
 
 // Import styles
-import styles from "./Header.module.css"
+import styles from "./Header.module.css";
 
 export function Header() {
   return (
