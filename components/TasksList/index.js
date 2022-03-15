@@ -3,7 +3,6 @@ import useSWR, { useSWRConfig } from "swr";
 
 // Import Bootstrap
 import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
 
 // Import components
 import { TaskItem } from "../TaskItem/";
@@ -35,8 +34,8 @@ export function TasksList({ status, title }) {
               size="sm"
               variant="outline-danger"
             >
-              Delete all{" "}
-              <span className="d-none d-sm-inline">finished tasks</span>
+              <span className="d-inline d-sm-none">Delete done</span>
+              <span className="d-none d-sm-inline">Delete all completed tasks</span>
             </Button>
           )}
         </header>
