@@ -15,7 +15,7 @@ const deleteTaskCall = async (deletedTask) => {
   // Get id from deleted task to send to API
   const { _id: taskId } = deletedTask
 
-  // Update the task via the API and return the response
+  // Delete the task via the API and return the response
   // Our GraphQL query should be set to return the updated task
   try {
     // Use fetch and send a PATCH HTTPS call
@@ -37,7 +37,7 @@ const deleteTaskCall = async (deletedTask) => {
 
 // Handle task change
 export async function handleTaskDelete (mutate, task, tasks) {
-  // Update tasks list with new task
+  // Update tasks list with deleted task
   try {
     // Create new tasks list with task update
     const updatedTasks = deleteTask(task, tasks)
@@ -52,7 +52,7 @@ export async function handleTaskDelete (mutate, task, tasks) {
         optimisticData: updatedTasks,
         // Then, populateCache sets the data cache with the API response
         // currentTasks is the dataset as it existed before being temporarily updated by optimisticData
-        // We return a new tasks list which combines the current tasks and the updated task response from the API
+        // We return a new tasks list which excludes the deleted task
         populateCache: (deletedTaskResponse, currentTasks) => {
           // Mutate data cache with API response
           const updatedTasks = deleteTask(deletedTaskResponse, currentTasks)
