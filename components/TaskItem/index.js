@@ -14,19 +14,28 @@ const handleTaskChange = async (event, mutate, task, tasks) => {
 
   // Update tasks list with new task
   try {
-    // Mutate local data cache
+    // Create new tasks list with task update
     // This immediately updates the DOM
-    const updatedTasks = await updateTaskData(updatedTask, tasks)
+    const updatedTasks = updateTaskData(updatedTask, tasks)
 
     // Mutate remote dataset
+    // This sends the task update to the API
     await mutate(
       `/api/list/tasks`, 
-      updateTaskCall(updatedTask, tasks),
+      updateTaskCall(updatedTask),
       {
-        // optimisticData sets the new data cache as UpdatedTasks
-        // Once the api call completes, SWR compares the response to the local cache
+        // First, optimisticData sets the data cache with the local task update
         optimisticData: updatedTasks,
-        populateCache: true,
+        // Then, populateCache sets the data cache with the API response
+        // populateCache expects an object to be returned with the new tasks list
+        populateCache: (updatedTask, tasks) => {
+          // Mutate data cache with API response
+          const updatedTasks = updateTaskData(updatedTask, tasks)
+
+          // Return updated tasks
+          return updatedTasks
+        },
+        // If the API call fails, rollback the optimisticData
         rollbackOnError: true,
         // We avoid revalidation since we're fully handling the cache mutation
         // This reduces unnecessary API calls
@@ -38,13 +47,14 @@ const handleTaskChange = async (event, mutate, task, tasks) => {
   }
 }
 
-// Update task completion
-const updateTaskCall = async (updatedTask, tasks) => {
+// Mutate remote task data with API call
+const updateTaskCall = async (updatedTask) => {
 
-  // Get relevant API data from updated task
+  // Get relevant data from updated task to send via API call
   const { _id: taskId, done } = updatedTask
 
   // Update the task via the API and return the response
+  // Our GraphQL query should be set to return the updated task
   try {
     // Use fetch and send a PATCH HTTPS call
     const updatedTaskResponse = await fetch(`/api/update/${taskId}`, {
@@ -52,33 +62,34 @@ const updateTaskCall = async (updatedTask, tasks) => {
       body: JSON.stringify({done: done})
     })
 
-    // Parse the response and destructure updatedTask data
+    // Parse the response and destructure updatedTask data from response
     const { partialUpdateTask: updatedTask } = await updatedTaskResponse.json()
 
-    // Mutate local data cache
-    const updatedTasks = await updateTaskData(updatedTask, tasks)
+    // Return updated task
+    return updatedTask
 
-    // Return updated data cache
-    return updatedTasks
+  // If anything breaks, throw error
   } catch (error) {
     throw error
   }
 }
 
-// Update the task's completion status
-const updateTaskData = async (updatedTask, tasks) => {
+// Update a task's completion status
+// This function accepts an updated task and the existing task data
+// It updates the task within the task list, and returns a new task list
+const updateTaskData = (updatedTask, tasks) => {
   // Create new array for immutability
   const updatedTasks = tasks.slice()
 
-  // Get index of updatedTask in tasks
+  // Get index of updatedTask in new array
   const updatedTaskIndex = updatedTasks.findIndex(task => task._id === updatedTask._id)
 
-  // Replace old task with updated version
+  // If the index exists, update the task
   if (~updatedTaskIndex) {
-    // Update task at it's index
+    // Update the task within the new array
     updatedTasks[updatedTaskIndex] = updatedTask
 
-    // Return updated tasks
+    // Return new array with updated task
     return updatedTasks
   }
 }
