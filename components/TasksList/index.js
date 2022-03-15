@@ -26,6 +26,7 @@ export function TasksList({ status, title }) {
           <ul className={styles.list}>
             {tasks
               .filter(task => task.done === status)
+              .reverse()
               .map(task => (
               <TaskItem
                 key={task._id} 
