@@ -1,11 +1,11 @@
 // Import Bootstrap
-import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 // Import components
-import Head from 'next/head'
-import { Header } from '../components/Header/'
-import { Home } from '../components/Home/'
+import Head from "next/head";
+import { Header } from "../components/Header/";
+import { Home } from "../components/Home/";
 
 // Render page
 export default function Start() {
@@ -13,12 +13,13 @@ export default function Start() {
     <>
       <Head>
         <title>To-Do Application</title>
-        <meta name="description" content="A to-do application built with Next.js and Firebase." />
+        <meta
+          name="description"
+          content="A to-do application built with Next.js and Firebase."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container
-        className="mt-3 mt-sm-4"
-      >
+      <Container className="mt-3 mt-sm-4">
         <Card>
           <Card.Header
             as="header"
@@ -26,13 +27,11 @@ export default function Start() {
           >
             <Header />
           </Card.Header>
-          <Card.Body
-            as="main"
-          >
+          <Card.Body as="main">
             <Home />
           </Card.Body>
         </Card>
       </Container>
     </>
-  )
+  );
 }

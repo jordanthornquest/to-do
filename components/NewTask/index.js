@@ -1,33 +1,33 @@
 // Import state from React
-import { useState } from 'react';
+import { useState } from "react";
 
 // Import SWR
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR, { useSWRConfig } from "swr";
 
 // Import Bootstrap
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import InputGroup from 'react-bootstrap/InputGroup'
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import InputGroup from "react-bootstrap/InputGroup";
 
 // Import helpers
-import { createNewTask, handleNewTask } from '../../helpers/addTaskHelpers'
+import { createNewTask, handleNewTask } from "../../helpers/addTaskHelpers";
 
 // Export component
 export function NewTask({ formId }) {
   // Get data from our API with SWR
-  const { data: tasks } = useSWR('/api/list/tasks')
+  const { data: tasks } = useSWR("/api/list/tasks");
 
   // Use SWR to handle mutation
-  const { mutate } = useSWRConfig()
+  const { mutate } = useSWRConfig();
 
   // Handle new task name with state
   // Set initial state as empty
-  const [newTaskName, setNewTaskName] = useState("")
+  const [newTaskName, setNewTaskName] = useState("");
 
   // handle new task validation with state
   // Set initial state as false
-  const [isValid, setValid] = useState(true)
+  const [isValid, setValid] = useState(true);
 
   // Handle submitting state
   // Avoid having inputs
@@ -39,7 +39,9 @@ export function NewTask({ formId }) {
       id={formId}
       noValidate
       onBlur={() => setValid(true)}
-      onSubmit={e => createNewTask(e, tasks, mutate, newTaskName, setNewTaskName, setValid)}
+      onSubmit={(e) =>
+        createNewTask(e, tasks, mutate, newTaskName, setNewTaskName, setValid)
+      }
     >
       <InputGroup
         className="flex-grow-1"
@@ -49,15 +51,12 @@ export function NewTask({ formId }) {
         <FormControl
           aria-label="New task"
           isInvalid={!isValid}
-          onChange={e => handleNewTask(e, setNewTaskName, setValid)}
+          onChange={(e) => handleNewTask(e, setNewTaskName, setValid)}
           placeholder="New task"
           type="text"
           value={newTaskName}
         />
-        <Button
-          variant="primary"
-          type="submit"
-        >
+        <Button variant="primary" type="submit">
           Add task &#43;
         </Button>
         <Form.Control.Feedback type="invalid">
@@ -65,5 +64,5 @@ export function NewTask({ formId }) {
         </Form.Control.Feedback>
       </InputGroup>
     </Form>
-  )
+  );
 }
