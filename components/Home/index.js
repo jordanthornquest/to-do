@@ -1,6 +1,9 @@
 // Import SWR for client-side data loading
 import useSWR from 'swr'
 
+// Import Bootstrap
+import Spinner from 'react-bootstrap/Spinner'
+
 // Import components
 import { TasksList } from '../TasksList/'
 
@@ -9,8 +12,17 @@ import styles from './Home.module.css'
 
 // Check data before rendering
 const checkData = (tasks, error) => {
-  if (error) return <p className={styles.message}>{error}</p>
-  if (!tasks) return <p className={styles.message}>Loading</p>
+  // Return error if there's any issues
+  if (error) return <p className="lead">{error}</p>
+
+  // Return spinner while loading data
+  if (!tasks) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    )
+  }
   if (tasks.length > 0) {
     return (
       <>
@@ -19,7 +31,7 @@ const checkData = (tasks, error) => {
       </>
     )
   } else {
-    return <p className={styles.message}>There are no tasks! You're all caught up. Great work!</p>
+    return <p className="lead">There are no tasks! You're all caught up. Great work!</p>
   }
 }
 
@@ -30,7 +42,7 @@ export function Home() {
 
   // Render component
   return (
-    <main className={styles.wrapper}>
+    <main className="container">
       {checkData(tasks, error)}
     </main>
   )

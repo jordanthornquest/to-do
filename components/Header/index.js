@@ -1,3 +1,6 @@
+// Import Bootstrap
+import Container from 'react-bootstrap/Container'
+
 // Import components
 import { NewTask } from '../NewTask'
 
@@ -6,10 +9,10 @@ import styles from './Header.module.css'
 
 export function Header() {
   return (
-    <header className={styles.wrapper}>
-      <h1 className={styles.heading}>KRS Global Domination Planner</h1>
-      <h2 className={styles.subheading}>Add new task</h2>
+    <Container as="header">
+      <h1 className="display">KRS Global Domination Planner</h1>
+      <h2>Add new task</h2>
       <NewTask formId="newTask" />
-    </header>
+    </Container>
   )
 }
