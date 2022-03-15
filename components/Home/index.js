@@ -16,7 +16,7 @@ const checkData = (tasks, error) => {
   // Return spinner while loading data
   if (!tasks) {
     return (
-      <Spinner animation="border" className="mx-auto my-4" role="status">
+      <Spinner animation="border" className="d-flex mx-auto mt-3" role="status">
         <span className="visually-hidden">Loading...</span>
       </Spinner>
     );
