@@ -15,16 +15,23 @@ export function Home() {
   // Render component
   return (
     <main className={styles.wrapper}>
-      {error && <p className={styles.error}>{error}</p>}
+      {error && <p className={styles.message}>{error}</p>}
 
       {!tasks 
         ?
-          <p className={styles.loading}>Loading</p>
+          <p className={styles.message}>Loading</p>
         :
-          <div>
-            <TasksList title="Active tasks" status={false} />
-            <TasksList title="Completed tasks" status={true} />
-          </div>
+          <>
+            {tasks.length > 0
+              ?
+                <>
+                  <TasksList title="Active tasks" status={false} />
+                  <TasksList title="Completed tasks" status={true} />
+                </>
+              :
+                <p className={styles.message}>There are no tasks! You're all caught up. Great work!</p>
+            }
+          </>
       }
     </main>
   )
