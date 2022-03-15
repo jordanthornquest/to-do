@@ -36,7 +36,7 @@ const deleteTaskCall = async (deletedTask) => {
 }
 
 // Handle task change
-export async function handleTaskDelete (mutate, task, tasks) {
+const handleTaskDelete = async (mutate, task, tasks) => {
   // Update tasks list with deleted task
   try {
     // Create new tasks list with task update
@@ -70,4 +70,10 @@ export async function handleTaskDelete (mutate, task, tasks) {
   } catch (error) {
     throw (error)
   }
+}
+
+// Export functions
+export {
+  deleteTaskCall,
+  handleTaskDelete
 }

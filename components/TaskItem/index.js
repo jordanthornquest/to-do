@@ -2,8 +2,8 @@
 import useSWR, { useSWRConfig } from 'swr'
 
 // Import helpers
-import { handleTaskUpdate } from './updateHelpers'
-import { handleTaskDelete } from './deleteHelpers'
+import { handleTaskUpdate } from '../../helpers/updateTaskHelpers'
+import { handleTaskDelete } from '../../helpers/deleteTaskHelpers'
 
 // Import styles
 import styles from './TaskItem.module.css'
