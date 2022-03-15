@@ -35,7 +35,7 @@ const checkData = (tasks, error) => {
       </>
     )
   } else {
-    return <p className="text-muted text-center mt-4 mb-2">There are no tasks! You're all caught up. Great work!</p>
+    return <p className="text-muted text-center mt-4 mb-2">You&apos;re all caught up. Great work!</p>
   }
 }
 
