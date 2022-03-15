@@ -2,9 +2,7 @@
 /* Organized alphabetically */
 
 /* All tasks heading spacing */
-.heading + .error,
-.heading + .loading,
-.heading + .list {
+.header + .list {
   margin-top: 1rem;
 }
 
