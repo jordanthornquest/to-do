@@ -1,0 +1,11 @@
+/* Header styles */
+/* Organized alphabetically */
+
+/* Header image wrapper */
+.imageWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  height: auto;
+  width: 100px;
+}

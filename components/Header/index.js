@@ -4,10 +4,15 @@ import Image from "next/image";
 // Import image
 import logo from "../../public/krs-logo.webp";
 
+// Import styles
+import styles from "./Header.module.css"
+
 export function Header() {
   return (
     <>
-      <Image alt="The KRS logo" height={35} src={logo} width={107} />
+      <div className={styles.imageWrapper}>
+        <Image alt="The KRS logo" src={logo} />
+      </div>
       <h1 className="fs-4 d-none d-sm-block mb-0">Global Domination Planner</h1>
     </>
   );
