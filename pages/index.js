@@ -20,7 +20,7 @@ export default function Start() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container className="mt-3 mt-sm-4">
-        <Card>
+        <Card className="home-card">
           <Card.Header
             as="header"
             className="align-items-center d-flex flex-row flex-wrap justify-content-between gap-2"

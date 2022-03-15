@@ -50,6 +50,7 @@ export function TaskItem({ task }) {
         onClick={(e) => handleTaskDelete(mutate, task, tasks)}
         variant="link"
       >
+        <span className="visually-hidden">Delete task</span>
         <FontAwesomeIcon icon={faClose} />
       </Button>
     </li>
