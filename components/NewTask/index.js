@@ -22,8 +22,6 @@ const createNewTask = async (e, tasks, mutate, newTaskName, setNewTaskName) => {
 
   // Otherwise, create new task
   } else {
-    // Reset the new task input
-    setNewTaskName("")
 
     // We will temporarily create an id with uuid
     // This will be overwritten once the todo's api response returns
@@ -35,6 +33,10 @@ const createNewTask = async (e, tasks, mutate, newTaskName, setNewTaskName) => {
       done: false,
       name: newTaskName
     }
+
+    // Reset the new task input
+    // We wait until after assignment to new task
+    setNewTaskName("")
 
     // Mutate the tasks data
     try {
