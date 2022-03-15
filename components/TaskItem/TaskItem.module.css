@@ -1,23 +1,20 @@
-/* Task component styles */
+/* Task item styles */
 /* Organized alphabetically */
 
-/* Task checkbox */
-.checkbox {
-  margin-right: 0.5rem;
+/* Task item */
+.item {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
 }
 
-/* Task checked */
-.checked {
-  font-style: italic;
-  text-decoration: line-through;
-}
-
-/* Task label */
-.name {
-  font-size: 1rem;
-}
-
-/* Task spacing */
-.task + .task {
-  margin-top: 0.5rem;
+/* Task item close */
+.close {
+  padding-left: 0;
+  padding-right: 0;
 }

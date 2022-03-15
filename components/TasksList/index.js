@@ -1,14 +1,15 @@
 // Import SWR for client-side data loading
 import useSWR, { useSWRConfig } from 'swr'
 
+// Import Bootstrap
+import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup'
+
 // Import components
 import { TaskItem } from '../TaskItem/'
 
 // Import helpers
 import { handleDeleteCompleted } from '../../helpers/deleteCompletedHelpers'
-
-// Import styles
-import styles from './TasksList.module.css'
 
 // Create component
 export function TasksList({ status, title }) {
@@ -25,19 +26,29 @@ export function TasksList({ status, title }) {
   // Return list of tasks if there are any
   if (filteredTasks.length > 0) {
     return (
-      <section className={styles.section}>
-        <header className={styles.header}>
-          <h2 className={styles.heading}>{title}</h2>
+      <section className="mt-4">
+        <header className="align-items-center d-flex flex-row flex-wrap justify-content-between gap-2">
+          <h2
+            className="fs-5 fw-bold m-0"
+          >
+            {title}
+          </h2>
           {status &&
-            <button onClick={e => handleDeleteCompleted(mutate, tasks)}>
-              Delete all finished tasks
-            </button>
+            <Button
+              onClick={e => handleDeleteCompleted(mutate, tasks)}
+              size="sm"
+              variant="outline-danger"
+            >
+              Delete all <span className="d-none d-sm-inline">finished tasks</span>
+            </Button>
           }
         </header>
-        <ul className={styles.list}>
+        <ul
+          className="d-flex flex-column gap-2 list-unstyled mt-3"
+        >
           {filteredTasks.map(task => (
             <TaskItem
-              key={task._id} 
+              key={task._id}
               task={task}
             />
           ))}

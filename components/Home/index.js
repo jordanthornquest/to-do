@@ -5,10 +5,8 @@ import useSWR from 'swr'
 import Spinner from 'react-bootstrap/Spinner'
 
 // Import components
+import { NewTask } from '../NewTask'
 import { TasksList } from '../TasksList/'
-
-// Import styles
-import styles from './Home.module.css'
 
 // Check data before rendering
 const checkData = (tasks, error) => {
@@ -18,11 +16,17 @@ const checkData = (tasks, error) => {
   // Return spinner while loading data
   if (!tasks) {
     return (
-      <Spinner animation="border" role="status">
+      <Spinner
+        animation="border"
+        className="mx-auto my-4"
+        role="status"
+      >
         <span className="visually-hidden">Loading...</span>
       </Spinner>
     )
   }
+
+  // If there are tasks to show, render lists
   if (tasks.length > 0) {
     return (
       <>
@@ -31,7 +35,7 @@ const checkData = (tasks, error) => {
       </>
     )
   } else {
-    return <p className="lead">There are no tasks! You're all caught up. Great work!</p>
+    return <p className="text-muted text-center mt-4 mb-2">There are no tasks! You're all caught up. Great work!</p>
   }
 }
 
@@ -42,8 +46,10 @@ export function Home() {
 
   // Render component
   return (
-    <main className="container">
+    <>
+      <h2 className="visually-hidden">New task</h2>
+      <NewTask formId="newTask" />
       {checkData(tasks, error)}
-    </main>
+    </>
   )
 }

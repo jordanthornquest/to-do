@@ -1,18 +1,19 @@
-// Import Bootstrap
-import Container from 'react-bootstrap/Container'
+// Import Next Image component
+import Image from 'next/image'
 
-// Import components
-import { NewTask } from '../NewTask'
-
-// Import styles
-import styles from './Header.module.css'
+// Import image
+import logo from '../../public/krs-logo.webp'
 
 export function Header() {
   return (
-    <Container as="header">
-      <h1 className="display">KRS Global Domination Planner</h1>
-      <h2>Add new task</h2>
-      <NewTask formId="newTask" />
-    </Container>
+    <>
+      <Image
+        alt="The KRS logo"
+        height={35}
+        src={logo}
+        width={107}
+      />
+      <h1 className="fs-4 d-none d-sm-block mb-0">Global Domination Planner</h1>
+    </>
   )
 }

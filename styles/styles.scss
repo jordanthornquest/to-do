@@ -1,4 +1,14 @@
 /* Global styles */
-/* Organized alphabetically */
 
+/* Import Bootstrap */
 @import "bootstrap/scss/bootstrap";
+
+/* Body styles */
+body {
+  background-color: $gray-100;
+}
+
+/* Container styles */
+.container {
+  max-width: 700px;
+}

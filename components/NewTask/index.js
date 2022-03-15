@@ -7,6 +7,8 @@ import useSWR, { useSWRConfig } from 'swr'
 // Import Bootstrap
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 // Import helpers
 import { createNewTask, handleNewTask } from '../../helpers/addTaskHelpers'
@@ -33,38 +35,35 @@ export function NewTask({ formId }) {
   // Render component
   return (
     <Form
-      className="align-items-start d-flex flex-row flex-wrap flex-md-nowrap gap-2 mt-3"
+      className="align-items-start d-flex flex-row flex-wrap flex-md-nowrap gap-2"
       id={formId}
       noValidate
       onBlur={() => setValid(true)}
       onSubmit={e => createNewTask(e, tasks, mutate, newTaskName, setNewTaskName, setValid)}
     >
-      <Form.Group
+      <InputGroup
         className="flex-grow-1"
-        controlId={`${formId}Name`}
+        hasValidation={true}
+        id={`${formId}Name`}
       >
-        <Form.Label
-          className="visually-hidden"
-        >
-          New task
-        </Form.Label>
-        <Form.Control
+        <FormControl
+          aria-label="New task"
           isInvalid={!isValid}
           onChange={e => handleNewTask(e, setNewTaskName, setValid)}
           placeholder="New task"
           type="text"
           value={newTaskName}
         />
+        <Button
+          variant="primary"
+          type="submit"
+        >
+          Add task &#43;
+        </Button>
         <Form.Control.Feedback type="invalid">
           Enter a name for this task
         </Form.Control.Feedback>
-      </Form.Group>
-      <Button
-        variant="primary"
-        type="submit"
-      >
-        Add task &#43;
-      </Button>
+      </InputGroup>
     </Form>
   )
 }
