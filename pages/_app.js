@@ -5,14 +5,14 @@ import { SWRConfig } from 'swr'
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 // Import styles
-import 'modern-normalize/modern-normalize.css'
-import '../styles/globals.css'
+import '../styles/style.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
     <SWRConfig
       value={{
-        fetcher: fetcher
+        fetcher: fetcher,
+        refreshInterval: 1000
       }}
     >
       <Component {...pageProps} />
