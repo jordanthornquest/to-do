@@ -5,7 +5,7 @@ import { SWRConfig } from 'swr'
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 // Import styles
-import '../styles/style.scss'
+import '../styles/styles.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
