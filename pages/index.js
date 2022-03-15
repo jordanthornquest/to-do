@@ -12,12 +12,11 @@ export default function Start() {
   return (
     <>
       <Head>
-        <title>To-Do Application</title>
+        <title>KRS Global Domination Planner</title>
         <meta
           name="description"
-          content="A to-do application built with Next.js and Firebase."
+          content="A to-do application for KRS and it's plans for the future."
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container className="mt-3 mt-sm-4">
         <Card className="home-card">
