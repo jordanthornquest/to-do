@@ -51,6 +51,7 @@ export function NewTask({ formId }) {
         <FormControl
           aria-label="New task"
           isInvalid={!isValid}
+          maxLength={100}
           onChange={(e) => handleNewTask(e, setNewTaskName, setValid)}
           placeholder="New task"
           type="text"
