@@ -26,17 +26,17 @@ export function TaskItem({ task }) {
 
   // Render component
   return (
-    <li className={styles.item}>
+    <li className={styles.item} id={`task${task._id}`}>
       <FormCheck className={styles.itemWrapper}>
         <FormCheck.Input
           checked={task.done}
           className={styles.itemCheck}
-          id={`task${task._id}`}
-          name={`task${task._id}`}
+          id={`task${task._id}Check`}
+          name={`task${task._id}Check`}
           onChange={(e) => handleTaskUpdate(e, mutate, task, tasks)}
           type="checkbox"
         />
-        <FormCheck.Label htmlFor={`task${task._id}`}>
+        <FormCheck.Label htmlFor={`task${task._id}Check`}>
           <span
             className={
               task.done
@@ -49,7 +49,7 @@ export function TaskItem({ task }) {
         </FormCheck.Label>
       </FormCheck>
       <Button
-        className={styles.close}
+        className={`${styles.close} text-reset`}
         onClick={(e) => handleTaskDelete(mutate, task, tasks)}
         variant="link"
       >

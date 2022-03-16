@@ -13,13 +13,14 @@ const checkData = (tasks, error) => {
   // Return error if there's any issues
   if (error) {
     // Log the error to the console
-    console.error(error)
+    console.error(error);
 
     // Return an error message
     // SWR will automatically attempt to get data again
     return (
       <p className="text-muted text-center mt-4 mb-2">
-        There was an error fetching data. Automatically attempting to reconnect...
+        There was an error fetching data. Automatically attempting to
+        reconnect...
       </p>
     );
   }
@@ -57,7 +58,6 @@ export function Home() {
   // Render component
   return (
     <>
-      <h2 className="visually-hidden">New task</h2>
       <NewTask formId="newTask" />
       {checkData(tasks, error)}
     </>
