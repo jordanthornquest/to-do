@@ -2,7 +2,7 @@
 import { SWRConfig } from "swr";
 
 // Import query fetcher from library
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { fetcher } from "../lib/fauna";
 
 // Import Font Awesome
 import { config } from "@fortawesome/fontawesome-svg-core";
