@@ -27,9 +27,10 @@ export function TaskItem({ task }) {
   // Render component
   return (
     <li className={styles.item}>
-      <FormCheck>
+      <FormCheck className={styles.itemWrapper}>
         <FormCheck.Input
           checked={task.done}
+          className={styles.itemCheck}
           id={`task${task._id}`}
           name={`task${task._id}`}
           onChange={(e) => handleTaskUpdate(e, mutate, task, tasks)}
@@ -38,7 +39,7 @@ export function TaskItem({ task }) {
         <FormCheck.Label htmlFor={`task${task._id}`}>
           <span
             className={
-              task.done ? "fst-italic text-break text-decoration-line-through" : "text-break"
+              task.done ? `${styles.itemText} fst-italic text-decoration-line-through` : `${styles.itemText}`
             }
           >
             {task.name}
