@@ -5,9 +5,11 @@ A to-do application built with NextJS & Fauna. The UI is built with Bootstrap 5.
 ## Getting started
 
 ### Fauna setup
+
 Upload the included schema in `/schemas/` to Fauna. This will initialize the data structure and GraphQL schema for a new `Task` collection. Once a schema is uploaded, generate a security key to access the collection via GraphQL.
 
 ### Repository setup
+
 After cloning this repository, install dependencies:
 
 ```bash
