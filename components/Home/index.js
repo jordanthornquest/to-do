@@ -18,7 +18,7 @@ const checkData = (tasks, error) => {
     // Return an error message
     // SWR will automatically attempt to get data again
     return (
-      <p className="text-muted text-center mb-0">
+      <p className="text-muted text-center my-2">
         There was an error fetching data. Automatically attempting to
         reconnect...
       </p>
@@ -44,9 +44,12 @@ const checkData = (tasks, error) => {
     );
   } else {
     return (
-      <p className="text-muted text-center mb-0">
-        You&apos;re all caught up. Great work!
-      </p>
+      <>
+        <NewTask formId="newTask" />
+        <p className="text-muted text-center mb-2 mt-4">
+          You&apos;re all caught up. Great work!
+        </p>
+      </>
     );
   }
 };
