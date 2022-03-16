@@ -12,9 +12,14 @@ import { TasksList } from "../TasksList/";
 const checkData = (tasks, error) => {
   // Return error if there's any issues
   if (error) {
+    // Log the error to the console
+    console.error(error)
+
+    // Return an error message
+    // SWR will automatically attempt to get data again
     return (
       <p className="text-muted text-center mt-4 mb-2">
-        {error}
+        There was an error fetching data. Automatically attempting to reconnect...
       </p>
     );
   }
