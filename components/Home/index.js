@@ -18,7 +18,7 @@ const checkData = (tasks, error) => {
     // Return an error message
     // SWR will automatically attempt to get data again
     return (
-      <p className="text-muted text-center mt-4 mb-2">
+      <p className="text-muted text-center mb-0">
         There was an error fetching data. Automatically attempting to
         reconnect...
       </p>
