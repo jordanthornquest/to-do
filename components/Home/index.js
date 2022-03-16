@@ -44,7 +44,7 @@ const checkData = (tasks, error) => {
     );
   } else {
     return (
-      <p className="text-muted text-center">
+      <p className="text-muted text-center mb-0">
         You&apos;re all caught up. Great work!
       </p>
     );
