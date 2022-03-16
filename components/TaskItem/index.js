@@ -38,7 +38,7 @@ export function TaskItem({ task }) {
         <FormCheck.Label htmlFor={`task${task._id}`}>
           <span
             className={
-              task.done ? "fst-italic text-decoration-line-through" : null
+              task.done ? "fst-italic text-break text-decoration-line-through" : "text-break"
             }
           >
             {task.name}
