@@ -12,22 +12,11 @@ import { TasksList } from "../TasksList/";
 const checkData = (tasks, error) => {
   // Return error if there's any issues
   if (error) {
-    // If the error's an object, parse it to a string
-    const checkErrorType = (error) => {
-      if (typeof error === 'object' && error !== null) {
-        const errorString = JSON.stringify(error);
-        return errorString;
-        // Return error string
-      } else {
-        return error;
-      }
-    }
-
-    // Parse error message
-    const errorMessage = checkErrorType(error)
-
-    // Return parsed message
-    return <p className="lead">{errorMessage}</p>;
+    return (
+      <p className="text-muted text-center mt-4 mb-2">
+        {error}
+      </p>
+    );
   }
   // Return spinner while loading data
   if (!tasks) {
