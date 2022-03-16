@@ -27,7 +27,7 @@ const checkData = (tasks, error) => {
   // Return spinner while loading data
   if (!tasks) {
     return (
-      <Spinner animation="border" className="d-flex mx-auto mt-3" role="status">
+      <Spinner animation="border" className="d-flex mx-auto" role="status">
         <span className="visually-hidden">Loading...</span>
       </Spinner>
     );
@@ -37,6 +37,7 @@ const checkData = (tasks, error) => {
   if (tasks.length > 0) {
     return (
       <>
+        <NewTask formId="newTask" />
         <TasksList title="Active tasks" status={false} />
         <TasksList title="Completed tasks" status={true} />
       </>
@@ -58,7 +59,6 @@ export function Home() {
   // Render component
   return (
     <>
-      <NewTask formId="newTask" />
       {checkData(tasks, error)}
     </>
   );
